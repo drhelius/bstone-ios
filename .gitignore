@@ -26,3 +26,17 @@
 *.exe
 *.out
 *.app
+
+#Xcode
+*.xcuserstate
+xcuserdata/
+*.xcexplist
+*.xcsettings
+
+#BlakeStone
+*.vsi
+vsi/
+
+# Mac files
+*.DS_Store
+
