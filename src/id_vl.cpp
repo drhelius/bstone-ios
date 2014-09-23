@@ -969,7 +969,7 @@ void ogl_refresh_screen()
 
     glActiveTexture(GL_TEXTURE0);
 
-    // ISG --> RGB format
+    // ISG --> changed format
     glTexSubImage2D(
         GL_TEXTURE_2D,
         0,
@@ -977,7 +977,7 @@ void ogl_refresh_screen()
         0,
         vga_width,
         vga_height,
-        GL_RGB,//format,
+        GL_LUMINANCE,//format,
         GL_UNSIGNED_BYTE,
         &vga_memory[vl_get_offset(displayofs)]);
 
@@ -1133,15 +1133,15 @@ bool ogl_initialize_textures()
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-        // ISG --> RGB format
+        // ISG --> changed format
         glTexImage2D(
             GL_TEXTURE_2D,
             0,
-            GL_RGB,//internal_format,
+            GL_LUMINANCE,//internal_format,
             vga_width,
             vga_height,
             0,
-            GL_RGB,//format,
+            GL_LUMINANCE,//format,
             GL_UNSIGNED_BYTE,
             NULL);
     }
@@ -1893,7 +1893,7 @@ void initialize_video()
             is_custom_scale = true;
         }
     }
-
+    
 
     //
     // Renderer initialization
