@@ -929,6 +929,9 @@ void PreDemo()
 //---------------------
 // Apogee presents
 //---------------------
+        // ISG --> this fixes intro timing
+        IN_UserInput(TickBase*1);
+        
 	// Cache pic
 	//
 		CA_CacheScreen(APOGEEPIC);
@@ -945,10 +948,9 @@ void PreDemo()
 		VL_SetPalette (0,256,static_cast<const Uint8*>(grsegs[APOGEEPALETTE]));
 		VL_SetPaletteIntensity(0,255,static_cast<const Uint8*>(grsegs[APOGEEPALETTE]),0);
 		VW_UpdateScreen();
-        
-        // ISG --> loop in fadeout fadein
-		//VL_FadeOut (0, 255, 25, 29, 53, 20);
-		//VL_FadeIn(0,255,static_cast<const Uint8*>(grsegs[APOGEEPALETTE]),30);
+    
+		VL_FadeOut (0, 255, 25, 29, 53, 20);
+		VL_FadeIn(0,255,static_cast<const Uint8*>(grsegs[APOGEEPALETTE]),30);
 
 	// Wait for end of fanfare
 	//
