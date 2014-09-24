@@ -704,6 +704,8 @@ static void in_handle_mouse_buttons(
     switch (e.button) {
     case SDL_BUTTON_LEFT:
         key = sc_mouse_left;
+        // ISG --> touch as return 
+        key = sc_return;
         break;
 
     case SDL_BUTTON_MIDDLE:
