@@ -369,7 +369,8 @@ void SD_Startup()
     }
 
     if (AdLibPresent)
-        mixer.initialize(44100);
+        // --> ISG: lowered sample rate
+        mixer.initialize(22050);
     else
         mixer.uninitialize();
 
