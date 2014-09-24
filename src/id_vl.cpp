@@ -1988,6 +1988,11 @@ void initialize_video()
             vga_height += k_ref_height;
         }
     }
+    
+    // ISG --> force resolution
+    vga_width = k_ref_width;
+    vga_height = k_ref_height;
+    vga_scale = 1;
 
     vga_area = vga_width * vga_height;
 
