@@ -1,6 +1,6 @@
 Blake Stone: Planet Strike iOS source port
 =======
-<b>By Ignacio Sanchez</b>
+<b>By Ignacio Sanchez, 2014</b>
 
 ----------
 
