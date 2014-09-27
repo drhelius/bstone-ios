@@ -962,11 +962,12 @@ void ogl_draw_screen()
 // draws it.
 void ogl_refresh_screen()
 {
+    /*
     GLenum format =
         bstone::OglApi::has_ext_texture_rg() ?
             bstone::OglApi::get_gl_red() :
             GL_LUMINANCE;
-
+*/
     glActiveTexture(GL_TEXTURE0);
 
     // ISG --> changed format
