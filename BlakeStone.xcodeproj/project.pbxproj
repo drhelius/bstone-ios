@@ -11,6 +11,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		6680308919D6DBF40077056D /* bstone_timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6680308619D6DBF40077056D /* bstone_timer.mm */; };
 		66AC773E19CF728D0062EC4E /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AC773D19CF727C0062EC4E /* libSDL2.a */; };
 		66AC774E19CF73F20062EC4E /* AUDIOHED.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774219CF73F20062EC4E /* AUDIOHED.VSI */; };
 		66AC774F19CF73F20062EC4E /* AUDIOT.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774319CF73F20062EC4E /* AUDIOT.VSI */; };
@@ -108,6 +109,14 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6680308019D6DBF40077056D /* bstone_in_callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_in_callback.h; path = src/bstone_in_callback.h; sourceTree = "<group>"; };
+		6680308119D6DBF40077056D /* bstone_in_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_in_manager.h; path = src/bstone_in_manager.h; sourceTree = "<group>"; };
+		6680308219D6DBF40077056D /* bstone_in_manager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bstone_in_manager.mm; path = src/bstone_in_manager.mm; sourceTree = "<group>"; };
+		6680308319D6DBF40077056D /* bstone_in_regions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_in_regions.h; path = src/bstone_in_regions.h; sourceTree = "<group>"; };
+		6680308419D6DBF40077056D /* bstone_singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_singleton.h; path = src/bstone_singleton.h; sourceTree = "<group>"; };
+		6680308519D6DBF40077056D /* bstone_timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_timer.h; path = src/bstone_timer.h; sourceTree = "<group>"; };
+		6680308619D6DBF40077056D /* bstone_timer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bstone_timer.mm; path = src/bstone_timer.mm; sourceTree = "<group>"; };
+		6680308719D6DBF40077056D /* bstone_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_vector.h; path = src/bstone_vector.h; sourceTree = "<group>"; };
 		66AC773719CF727C0062EC4E /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../../SDL2-2.0.3/Xcode-iOS/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		66AC774219CF73F20062EC4E /* AUDIOHED.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOHED.VSI; path = vsi/AUDIOHED.VSI; sourceTree = "<group>"; };
 		66AC774319CF73F20062EC4E /* AUDIOT.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOT.VSI; path = vsi/AUDIOT.VSI; sourceTree = "<group>"; };
@@ -385,6 +394,10 @@
 				66AC778D19CF742B0062EC4E /* bstone_file_stream.h */,
 				66AC778E19CF742B0062EC4E /* bstone_format_string.cpp */,
 				66AC778F19CF742B0062EC4E /* bstone_format_string.h */,
+				6680308019D6DBF40077056D /* bstone_in_callback.h */,
+				6680308119D6DBF40077056D /* bstone_in_manager.h */,
+				6680308219D6DBF40077056D /* bstone_in_manager.mm */,
+				6680308319D6DBF40077056D /* bstone_in_regions.h */,
 				66AC779019CF742B0062EC4E /* bstone_istream.cpp */,
 				66AC779119CF742B0062EC4E /* bstone_istream.h */,
 				66AC779219CF742B0062EC4E /* bstone_memory_binary_reader.cpp */,
@@ -401,9 +414,13 @@
 				66AC779D19CF742B0062EC4E /* bstone_pcm_decoder.h */,
 				66AC781419CF7BD50062EC4E /* bstone_resource_path.mm */,
 				66AC781619CF7C130062EC4E /* bstone_resource_path.h */,
+				6680308419D6DBF40077056D /* bstone_singleton.h */,
 				66AC779E19CF742B0062EC4E /* bstone_string_helper.cpp */,
 				66AC779F19CF742B0062EC4E /* bstone_string_helper.h */,
+				6680308519D6DBF40077056D /* bstone_timer.h */,
+				6680308619D6DBF40077056D /* bstone_timer.mm */,
 				66AC77A019CF742B0062EC4E /* bstone_un_value.h */,
+				6680308719D6DBF40077056D /* bstone_vector.h */,
 				66AC77A119CF742B0062EC4E /* colormap.cpp */,
 				66AC77A219CF742B0062EC4E /* d3_d2.cpp */,
 				66AC77A319CF742B0062EC4E /* d3_dr2.cpp */,
@@ -631,6 +648,7 @@
 				66AC780B19CF742B0062EC4E /* stub.cpp in Sources */,
 				66AC77DF19CF742B0062EC4E /* 3d_play.cpp in Sources */,
 				66AC77F519CF742B0062EC4E /* colormap.cpp in Sources */,
+				6680308919D6DBF40077056D /* bstone_timer.mm in Sources */,
 				66AC77F919CF742B0062EC4E /* id_in.cpp in Sources */,
 				66AC77FD19CF742B0062EC4E /* id_sdd.cpp in Sources */,
 				66AC77EF19CF742B0062EC4E /* bstone_memory_stream.cpp in Sources */,
