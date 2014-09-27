@@ -1,6 +1,6 @@
 Blake Stone: Planet Strike iOS source port
 =======
-<b>By Ignacio Sanchez, 2014</b>
+<b>By Ignacio Sanchez, 2014.</b>
 
 ----------
 
@@ -31,11 +31,9 @@ License
 
 bstone-ios: Blake Stone Planet Strike for iOS
 
-Copyright (c) 1992-2013 Apogee Entertainment, LLC
-
-Copyright (c) 2013 Boris Bendovsky (bibendovsky@hotmail.com)
-
-Copyright (c) 2014 Ignacio Sanchez (ignacio.sanchez@geardome.com)
+- Copyright (c) 1992-2013 Apogee Entertainment, LLC
+- Copyright (c) 2013 Boris Bendovsky (bibendovsky@hotmail.com)
+- Copyright (c) 2014 Ignacio Sanchez (ignacio.sanchez@geardome.com)
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
