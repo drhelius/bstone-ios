@@ -42,6 +42,8 @@ Free Software Foundation, Inc.,
 //
 
 #include "3d_def.h"
+#include "bstone_in_manager.h"
+#include "bstone_globals.h"
 
 #ifdef MSVC
 #pragma hdrstop
@@ -700,12 +702,10 @@ static void in_handle_mouse_buttons(
 {
     ScanCode key = sc_none;
     bool is_pressed = (e.state == SDL_PRESSED);
-
+    
     switch (e.button) {
     case SDL_BUTTON_LEFT:
         key = sc_mouse_left;
-        // ISG --> touch as return 
-        key = sc_return;
         break;
 
     case SDL_BUTTON_MIDDLE:
@@ -743,16 +743,17 @@ static void in_handle_mouse_motion(
     in_mouse_dy += e.yrel;
 }
 
-static void in_handle_mouse(
-    const SDL_Event& e)
+static void in_handle_mouse(const SDL_Event& e)
 {
     switch (e.type) {
     case SDL_MOUSEBUTTONDOWN:
     case SDL_MOUSEBUTTONUP:
+            //SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Mouse B: x %d y %d s %d t %d", e.button.x, e.button.y, e.button.state, e.button.type);
         ::in_handle_mouse_buttons(e.button);
         break;
 
     case SDL_MOUSEMOTION:
+            //SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Mouse M: x %d y %d s %d t %d", e.motion.x, e.motion.y, e.motion.state, e.motion.type);
         ::in_handle_mouse_motion(e.motion);
         break;
     }
@@ -1336,9 +1337,12 @@ void in_handle_events()
     SDL_Event e;
 
     ::SDL_PumpEvents();
+    
+    bool need_input_update = false;
 
     while (SDL_PollEvent(&e)) {
         switch (e.type) {
+        /*
         case SDL_KEYDOWN:
         case SDL_KEYUP:
             ::in_handle_keyboard(e.key);
@@ -1349,11 +1353,24 @@ void in_handle_events()
         case SDL_MOUSEMOTION:
             ::in_handle_mouse(e);
             break;
-
+		*/
         case SDL_WINDOWEVENT:
             ::in_handle_window(e.window);
             break;
+        
+        case SDL_FINGERMOTION:
+        case SDL_FINGERDOWN:
+        case SDL_FINGERUP:
+            InputManager::Instance().HandleTouch(&e.tfinger);
+            need_input_update=true;
+            break;
+
         }
+    }
+    
+    if (need_input_update)
+    {
+        InputManager::Instance().Update();
     }
 }
 // BBi
@@ -1814,6 +1831,9 @@ void IN_Startup()
         JoysPresent[i] = checkjoys? INL_StartJoy(static_cast<Uint16>(i)) : false;
 
     in_set_default_bindings();
+    
+    InputManager::Instance().ClearRegionEvents();
+    InputManager::Instance().SetResolution(res_width, res_height);
 
     IN_Started = true;
 }

@@ -13,6 +13,7 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		6680308919D6DBF40077056D /* bstone_timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6680308619D6DBF40077056D /* bstone_timer.mm */; };
 		6680308D19D739460077056D /* bstone_in_manager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6680308219D6DBF40077056D /* bstone_in_manager.mm */; };
+		6680309219D75B1F0077056D /* bstone_globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6680309019D75B1F0077056D /* bstone_globals.cpp */; };
 		66AC773E19CF728D0062EC4E /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AC773D19CF727C0062EC4E /* libSDL2.a */; };
 		66AC774E19CF73F20062EC4E /* AUDIOHED.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774219CF73F20062EC4E /* AUDIOHED.VSI */; };
 		66AC774F19CF73F20062EC4E /* AUDIOT.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774319CF73F20062EC4E /* AUDIOT.VSI */; };
@@ -118,6 +119,8 @@
 		6680308519D6DBF40077056D /* bstone_timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_timer.h; path = src/bstone_timer.h; sourceTree = "<group>"; };
 		6680308619D6DBF40077056D /* bstone_timer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bstone_timer.mm; path = src/bstone_timer.mm; sourceTree = "<group>"; };
 		6680308719D6DBF40077056D /* bstone_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_vector.h; path = src/bstone_vector.h; sourceTree = "<group>"; };
+		6680309019D75B1F0077056D /* bstone_globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bstone_globals.cpp; path = src/bstone_globals.cpp; sourceTree = "<group>"; };
+		6680309119D75B1F0077056D /* bstone_globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_globals.h; path = src/bstone_globals.h; sourceTree = "<group>"; };
 		66AC773719CF727C0062EC4E /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../../SDL2-2.0.3/Xcode-iOS/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		66AC774219CF73F20062EC4E /* AUDIOHED.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOHED.VSI; path = vsi/AUDIOHED.VSI; sourceTree = "<group>"; };
 		66AC774319CF73F20062EC4E /* AUDIOT.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOT.VSI; path = vsi/AUDIOT.VSI; sourceTree = "<group>"; };
@@ -395,6 +398,8 @@
 				66AC778D19CF742B0062EC4E /* bstone_file_stream.h */,
 				66AC778E19CF742B0062EC4E /* bstone_format_string.cpp */,
 				66AC778F19CF742B0062EC4E /* bstone_format_string.h */,
+				6680309019D75B1F0077056D /* bstone_globals.cpp */,
+				6680309119D75B1F0077056D /* bstone_globals.h */,
 				6680308019D6DBF40077056D /* bstone_in_callback.h */,
 				6680308119D6DBF40077056D /* bstone_in_manager.h */,
 				6680308219D6DBF40077056D /* bstone_in_manager.mm */,
@@ -617,6 +622,7 @@
 				66AC781519CF7BD50062EC4E /* bstone_resource_path.mm in Sources */,
 				66AC77ED19CF742B0062EC4E /* bstone_istream.cpp in Sources */,
 				66AC780519CF742B0062EC4E /* jm_io.cpp in Sources */,
+				6680309219D75B1F0077056D /* bstone_globals.cpp in Sources */,
 				66AC77E919CF742B0062EC4E /* bstone_c.cpp in Sources */,
 				66AC77FB19CF742B0062EC4E /* id_pm.cpp in Sources */,
 				66AC77FC19CF742B0062EC4E /* id_sd.cpp in Sources */,

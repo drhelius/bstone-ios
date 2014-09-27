@@ -31,6 +31,7 @@ Free Software Foundation, Inc.,
 
 #include "bstone_ogl_api.h"
 
+#include "bstone_globals.h"
 
 #ifdef MSVC
 #pragma hdrstop
@@ -1810,6 +1811,9 @@ bool x_initialize_video()
             SDL_LogInfo(SDL_LOG_CATEGORY_ERROR, "%s", SDL_GetError());
         }
     }
+    
+    res_width = window_width;
+    res_height = window_height;
 
     if (is_succeed)
         is_succeed = vid_initialize_renderer();
