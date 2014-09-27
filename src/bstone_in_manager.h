@@ -27,10 +27,17 @@ Free Software Foundation, Inc.,
 
 #include <queue>
 #include <vector>
+#include "SDL.h"
 #include "bstone_singleton.h"
 #include "bstone_in_callback.h"
 #include "bstone_in_regions.h"
 #include "bstone_timer.h"
+
+struct stPoint
+{
+    float x;
+    float y;
+};
 
 class InputManager : public Singleton<InputManager>
 {
@@ -52,7 +59,7 @@ private:
         bool pressed;
         Region* region;
         InputCallbackGeneric* pCallback;
-        UITouch* pActualTouch;
+        SDL_FingerID touch_id;
     };
 
     struct stRegionEventResponse
@@ -74,6 +81,9 @@ private:
 
     float m_fInputRate;
     
+    int m_iWidth;
+    int m_iHeight;
+    
 private:
     
     InputManager();
@@ -82,9 +92,10 @@ public:
 
     ~InputManager();
 
+    void SetResolution(int w, int h);
     void Update(void);
 
-    void HandleTouch(UITouch* touch, UIView* view);
+    void HandleTouch(SDL_TouchFingerEvent* touch);
 
     void AddRectRegionEvent(float x, float y, float width, float height, InputCallbackGeneric* pCallback, int id = 0, bool receiveMoveEvent = false);
     void AddCircleRegionEvent(float x, float y, float radius, InputCallbackGeneric* pCallback, int id = 0, bool receiveMoveEvent = false);

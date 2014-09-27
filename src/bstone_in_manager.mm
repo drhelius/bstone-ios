@@ -34,6 +34,12 @@ InputManager::~InputManager()
 {
 }
 
+void InputManager::SetResolution(int w, int h)
+{
+    m_iWidth = w;
+    m_iHeight = h;
+}
+
 void InputManager::Update(void)
 {
     while (!m_RegionEventResponseQueue.empty())
@@ -54,7 +60,7 @@ void InputManager::AddCircleRegionEvent(float x, float y, float radius, InputCal
     tmp.regionType = REGION_CIRCLE;
     tmp.pCallback = pCallback;
     tmp.pressed = false;
-    tmp.pActualTouch = NULL;
+    tmp.touch_id = 0;
     tmp.id = id;
 
     m_RegionEventVector.push_back(tmp);
@@ -69,7 +75,7 @@ void InputManager::AddRectRegionEvent(float x, float y, float width, float heigh
     tmp.regionType = REGION_RECT;
     tmp.pCallback = pCallback;
     tmp.pressed = false;
-    tmp.pActualTouch = NULL;
+    tmp.touch_id = 0;
     tmp.id = id;
 
     m_RegionEventVector.push_back(tmp);
@@ -92,13 +98,19 @@ void InputManager::ClearRegionEvents(void)
     }
 }
 
-void InputManager::HandleTouch(UITouch* touch, UIView* view)
+void InputManager::HandleTouch(SDL_TouchFingerEvent* touch)
 {
-    CGPoint location = [touch locationInView : view];
-    CGPoint previousLocation;
+    stPoint location;
+    location.x = touch->x * m_iWidth;
+    location.y = touch->y * m_iHeight;
+    
+    stPoint previousLocation;
 
-    if (touch.phase == UITouchPhaseMoved)
-        previousLocation = [touch previousLocationInView : view];
+    if (touch->type == SDL_FINGERMOTION)
+    {
+        previousLocation.x = (touch->x - touch->dx) * m_iWidth;
+        previousLocation.y = (touch->y - touch->dy) * m_iHeight;
+    }
     else
         previousLocation = location;
 
@@ -113,28 +125,55 @@ void InputManager::HandleTouch(UITouch* touch, UIView* view)
         event.id = regionEvent.id;
 
         bool sendEvent = false;
-
-        if (touch.phase == UITouchPhaseMoved)
+        
+        switch (touch->type)
         {
-            if (regionEvent.region->PointInRegion(previousLocation.x, previousLocation.y))
+            case SDL_FINGERDOWN:
             {
-                if (!regionEvent.region->PointInRegion(location.x, location.y))
+                if (!regionEvent.pressed && regionEvent.region->PointInRegion(location.x, location.y))
                 {
-                    if (regionEvent.pressed)
+                    event.parameter.type = PRESS_START;
+                    if (regionEvent.regionType == REGION_RECT)
+                    {
+                        event.parameter.vector = Vec3(location.x, location.y, 0.0f);
+                    }
+                    else
+                    {
+                        Vec3 point = Vec3(location.x, location.y, 0.0f);
+                        event.parameter.vector = point - regionEvent.region->GetPosition();
+                    }
+                    regionEvent.pressed = true;
+                    m_RegionEventVector[i].touch_id = touch->fingerId;
+                    sendEvent = true;
+                }
+                break;
+            }
+            case SDL_FINGERUP:
+            {
+                if (regionEvent.pressed && (regionEvent.touch_id == touch->fingerId))
+                {
+                    event.parameter.type = PRESS_END;
+                    regionEvent.pressed = false;
+                    sendEvent = true;
+                }
+                break;
+            }
+            case SDL_FINGERMOTION:
+            {
+                if (regionEvent.region->PointInRegion(previousLocation.x, previousLocation.y))
+                {
+                    if (regionEvent.pressed && !regionEvent.region->PointInRegion(location.x, location.y))
                     {
                         event.parameter.type = PRESS_END;
                         regionEvent.pressed = false;
                         sendEvent = true;
                     }
-                }
-                else
-                {
-                    if (regionEvent.pressed && regionEvent.receiveMoveEvent)
+                    else
                     {
-                        if (m_Timer.GetActualTime() > m_fInputRate)
+                        if (regionEvent.pressed && regionEvent.receiveMoveEvent && (m_Timer.GetActualTime() > m_fInputRate))
                         {
                             m_Timer.Start();
-
+                            
                             event.parameter.type = PRESS_MOVE;
                             if (regionEvent.regionType == REGION_RECT)
                             {
@@ -145,69 +184,34 @@ void InputManager::HandleTouch(UITouch* touch, UIView* view)
                                 Vec3 point = Vec3(location.x, location.y, 0.0f);
                                 event.parameter.vector = point - regionEvent.region->GetPosition();
                             }
-                            m_RegionEventVector[i].pActualTouch = touch;
+                            m_RegionEventVector[i].touch_id = touch->fingerId;
+                            sendEvent = true;
+                        }
+                        else if (!regionEvent.pressed)
+                        {
+                            event.parameter.type = PRESS_START;
+                            if (regionEvent.regionType == REGION_RECT)
+                            {
+                                event.parameter.vector = Vec3(location.x, location.y, 0.0f);
+                            }
+                            else
+                            {
+                                Vec3 point = Vec3(location.x, location.y, 0.0f);
+                                event.parameter.vector = point - regionEvent.region->GetPosition();
+                            }
+                            regionEvent.pressed = true;
+                            m_RegionEventVector[i].touch_id = touch->fingerId;
                             sendEvent = true;
                         }
                     }
-                    else if (!regionEvent.pressed)
-                    {
-                        
-                        event.parameter.type = PRESS_START;
-                        if (regionEvent.regionType == REGION_RECT)
-                        {
-                            event.parameter.vector = Vec3(location.x, location.y, 0.0f);
-                        }
-                        else
-                        {
-                            Vec3 point = Vec3(location.x, location.y, 0.0f);
-                            event.parameter.vector = point - regionEvent.region->GetPosition();
-                        }
-                        regionEvent.pressed = true;
-                        m_RegionEventVector[i].pActualTouch = touch;
-                        sendEvent = true;
-                    }
                 }
-            }
-        }
-        else if (touch.phase == UITouchPhaseBegan)
-        {
-            if (regionEvent.region->PointInRegion(previousLocation.x, previousLocation.y))
-            {
-                if (!regionEvent.pressed)
-                {
-                    event.parameter.type = PRESS_START;
-                    if (regionEvent.regionType == REGION_RECT)
-                    {
-                        event.parameter.vector = Vec3(previousLocation.x, previousLocation.y, 0.0f);
-                    }
-                    else
-                    {
-                        Vec3 point = Vec3(previousLocation.x, previousLocation.y, 0.0f);
-                        event.parameter.vector = point - regionEvent.region->GetPosition();
-                    }
-                    regionEvent.pressed = true;
-                    m_RegionEventVector[i].pActualTouch = touch;
-                    sendEvent = true;
-                }
-            }
-        }
-        else if ((touch.phase == UITouchPhaseEnded) || (touch.phase == UITouchPhaseCancelled))
-        {
-            if (regionEvent.pActualTouch == touch)
-            {
-                if (regionEvent.pressed)
-                {
-                    event.parameter.type = PRESS_END;
-                    regionEvent.pressed = false;
-                    sendEvent = true;
-                }
+                break;
             }
         }
 
         if (sendEvent)
         {
             m_RegionEventVector[i].pressed = regionEvent.pressed;
-
             m_RegionEventResponseQueue.push(event);
         }
     }
