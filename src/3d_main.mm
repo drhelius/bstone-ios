@@ -820,7 +820,7 @@ static void sdl_log_output_callback(
     g_sdl_log << message << std::endl;
     g_sdl_log.flush();
     // ISG --> iOS logging
-    NSLog(@(message));
+    NSLog(@"%s", message);
 }
 
 static void sdl_log_initialize()

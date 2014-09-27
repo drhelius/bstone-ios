@@ -138,6 +138,8 @@ void jsprintf(char *msg, ...);
 #define MAPSPOT(x,y,plane)              (*(mapsegs[plane]+farmapylookup[y]+x))
 
 #define SIGN(x)         ((x)>0?1:-1)
+// ISG --> macro redefinition:
+#undef ABS
 #define ABS(x)          ((Sint16)(x)>0?(x):-(x))
 #define LABS(x)         ((Sint32)(x)>0?(x):-(x))
 

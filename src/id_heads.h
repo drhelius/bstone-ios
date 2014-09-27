@@ -131,8 +131,10 @@ extern  char            signonv1;
 //      v1.0d1
 //
 
-#define false (0)
-#define true (1)
+// ISG --> macro redefinition:
+//#define false (0)
+//#define true (1)
+
 typedef Sint16 boolean;
 
 struct BSPoint {
@@ -145,6 +147,8 @@ struct BSRect {
     BSPoint lr;
 }; // struct BSRect
 
+// ISG --> macro redefinition:
+#undef nil
 #define nil     (0l)
 
 
