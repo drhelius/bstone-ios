@@ -1304,7 +1304,7 @@ void DrawScaleds (void)
 		//
 		// draw farthest
 		//
-		if (((gamestate.flags & GS_LIGHTING) != 0 && farthest->lighting != NO_SHADING) || cloaked_shape)
+if (((gamestate.flags & GS_LIGHTING) != 0 /*&& farthest->lighting != NO_SHADING*/) || cloaked_shape)
 			ScaleLSShape(farthest->viewx,farthest->shapenum,farthest->viewheight,farthest->lighting);
 		else
 			ScaleShape(farthest->viewx,farthest->shapenum,farthest->viewheight);

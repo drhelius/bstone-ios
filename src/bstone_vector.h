@@ -33,7 +33,7 @@ subject to the following restrictions:
 #define vt2f(x)						(x)
 
 #define PIOVERTWO				PIOVERTWOf
-#define PI						PIf
+//#define PI						PIf
 #define TWOPI					TWOPIf
 #define ONE						ONEf
 
