@@ -1848,10 +1848,10 @@ void InputController(stInputCallbackParameter parameter, int id)
                 key = sc_left_arrow;
                 break;
             case 2:
-                key = sc_up_arrow;
+                key = sc_w;
                 break;
             case 3:
-                key = sc_down_arrow;
+                key = sc_s;
                 break;
         }
         
@@ -1952,10 +1952,10 @@ void IN_Startup()
     InputManager::Instance().AddCircleRegionEvent(76.0f, 370.0f, 52.0f, m_pInputCallbackController, 0, true);
     */
     
-    InputManager::Instance().AddCircleRegionEvent(20.0f + 62.0f, (res_height - 344.0f), 75.0f, m_pInputCallbackController, 0, true);
-    InputManager::Instance().AddCircleRegionEvent(res_width - 44.0f, res_height - 350.0f, 36.0f, m_pInputCallbackButtons, 1, false);
-    InputManager::Instance().AddCircleRegionEvent(res_width - 116.0f, res_height - 301.0f, 36.0f, m_pInputCallbackButtons, 2, false);
-    InputManager::Instance().AddCircleRegionEvent(res_width - 44.0f, res_height - 439.0f, 36.0f, m_pInputCallbackButtons, 3, false);
+    InputManager::Instance().AddCircleRegionEvent(40.0f + 124.0f, (res_height - 688.0f), 150.0f, m_pInputCallbackController, 0, true);
+    InputManager::Instance().AddCircleRegionEvent(res_width - 88.0f, res_height - 700.0f, 72.0f, m_pInputCallbackButtons, 1, false);
+    InputManager::Instance().AddCircleRegionEvent(res_width - 232.0f, res_height - 601.0f, 72.0f, m_pInputCallbackButtons, 2, false);
+    InputManager::Instance().AddCircleRegionEvent(res_width - 88.0f, res_height - 878.0f, 72.0f, m_pInputCallbackButtons, 3, false);
    
     /*InputManager::Instance().AddCircleRegionEvent(IPHONE_SCREEN_HEIGHT - 116.0f, IPHONE_SCREEN_WIDTH - 301.0f, 36.0f, m_pInputCallbackFire);
     InputManager::Instance().AddCircleRegionEvent(IPHONE_SCREEN_HEIGHT - 126.0f, IPHONE_SCREEN_WIDTH - 390.0f, 36.0f, m_pInputCallbackNuclear);
