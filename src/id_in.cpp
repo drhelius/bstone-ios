@@ -127,6 +127,10 @@ Bindings in_bindings;
 =============================================================================
 */
 
+// ISG --> input callbacks
+InputCallback* m_pInputCallbackController;
+InputCallback* m_pInputCallbackButtons;
+
 boolean		IN_Started;
 
 static	Direction	DirTable[] =		// Quick lookup for total direction
@@ -1268,6 +1272,11 @@ IN_Shutdown(void)
 
     // BBi
     ::INL_ShutMouse();
+    
+    // ISG -->
+    SafeDelete(m_pInputCallbackController);
+    SafeDelete(m_pInputCallbackButtons);
+
 
 	IN_Started = false;
 }
@@ -1798,6 +1807,103 @@ boolean INL_StartJoy(Uint16 joy)
     }
 }
 
+void InputController(stInputCallbackParameter parameter, int id)
+{
+    bool bNewController[4];
+    for (int i = 0; i < 4; i++)
+        bNewController[i] = false;
+    
+    if (parameter.type != PRESS_END)
+    {
+        float length = parameter.vector.length();
+        
+        float minLength = 25.0f;
+        
+        /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+        {
+            minLength = 11.0f;
+        }*/
+        
+        if (length >= minLength)
+        {
+            float angle = atan2f(parameter.vector.x, -parameter.vector.y) * 57.29577951f;
+            
+            bNewController[0] = ((angle >= 35.0f) && (angle <= 145.0f));
+            bNewController[1] = ((angle <= -35.0f) && (angle >= -145.0f));
+            bNewController[2] = ((angle >= -55.0f) && (angle <= 55.0f));
+            bNewController[3] = ((angle >= 125.0f) || (angle <= -125.0f));
+        }
+    }
+    
+    for (int i = 0; i < 4; i++)
+    {
+        ScanCode key = sc_none;
+        
+        switch (i)
+        {
+            case 0:
+                key = sc_right_arrow;
+                break;
+            case 1:
+                key = sc_left_arrow;
+                break;
+            case 2:
+                key = sc_up_arrow;
+                break;
+            case 3:
+                key = sc_down_arrow;
+                break;
+        }
+        
+        Keyboard[key] = bNewController[i];
+        
+        if (Keyboard[key])
+        {
+            LastScan = key;
+        }
+    }
+}
+
+void InputButtons(stInputCallbackParameter parameter, int id)
+{
+    ScanCode key = sc_none;
+    
+    switch (id) {
+        case 1:
+            key = sc_return;
+            break;
+        case 2:
+            key = sc_control;
+            break;
+        case 3:
+            key = sc_space;
+            break;
+        case 4:
+            break;
+        default:
+            return;
+    }
+    
+    if (key != sc_none)
+    {
+        bool is_pressed = false;
+        
+        if (parameter.type == PRESS_START)
+        {
+            is_pressed = true;
+        }
+        else if (parameter.type == PRESS_END)
+        {
+            is_pressed = false;
+        }
+        
+        Keyboard[key] = is_pressed;
+        
+        if (is_pressed)
+            LastScan = key;
+    }
+}
+
 void IN_Startup()
 {
     int i;
@@ -1834,6 +1940,27 @@ void IN_Startup()
     
     InputManager::Instance().ClearRegionEvents();
     InputManager::Instance().SetResolution(res_width, res_height);
+    
+    m_pInputCallbackController = new InputCallback(&InputController);
+    m_pInputCallbackButtons = new InputCallback(&InputButtons);
+    
+    /*
+    InputManager::Instance().AddCircleRegionEvent(257.0f, 354.0f, 35.0f, m_pInputCallbackButtons, 1, false);
+    InputManager::Instance().AddCircleRegionEvent(203.0f, 380.0f, 35.0f, m_pInputCallbackButtons, 2, false);
+    InputManager::Instance().AddCircleRegionEvent(181.0f, 462.0f, 30.0f, m_pInputCallbackButtons, 3, false);
+    InputManager::Instance().AddCircleRegionEvent(129.0f, 462.0f, 30.0f, m_pInputCallbackButtons, 4, false);
+    InputManager::Instance().AddCircleRegionEvent(76.0f, 370.0f, 52.0f, m_pInputCallbackController, 0, true);
+    */
+    
+    InputManager::Instance().AddCircleRegionEvent(20.0f + 62.0f, (res_height - 344.0f), 75.0f, m_pInputCallbackController, 0, true);
+    InputManager::Instance().AddCircleRegionEvent(res_width - 44.0f, res_height - 350.0f, 36.0f, m_pInputCallbackButtons, 1, false);
+    InputManager::Instance().AddCircleRegionEvent(res_width - 116.0f, res_height - 301.0f, 36.0f, m_pInputCallbackButtons, 2, false);
+    InputManager::Instance().AddCircleRegionEvent(res_width - 44.0f, res_height - 439.0f, 36.0f, m_pInputCallbackButtons, 3, false);
+   
+    /*InputManager::Instance().AddCircleRegionEvent(IPHONE_SCREEN_HEIGHT - 116.0f, IPHONE_SCREEN_WIDTH - 301.0f, 36.0f, m_pInputCallbackFire);
+    InputManager::Instance().AddCircleRegionEvent(IPHONE_SCREEN_HEIGHT - 126.0f, IPHONE_SCREEN_WIDTH - 390.0f, 36.0f, m_pInputCallbackNuclear);
+    InputManager::Instance().AddCircleRegionEvent(IPHONE_SCREEN_HEIGHT - 44.0f, IPHONE_SCREEN_WIDTH - 439.0f, 36.0f, m_pInputCallbackDeflate);
+    InputManager::Instance().AddRectRegionEvent(IPHONE_SCREEN_HEIGHT - 115.0f, 0.0f, 115.0f, 70.0f, m_pInputCallbackMenu);*/
 
     IN_Started = true;
 }

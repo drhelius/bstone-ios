@@ -85,6 +85,9 @@ public:
     };
 };
 
+//////////////////////////
+//////////////////////////
+
 class InputCallback : public InputCallbackGeneric
 {
     
