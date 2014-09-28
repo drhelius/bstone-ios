@@ -57,7 +57,7 @@ public:
 //////////////////////////
 
 template <class Class>
-class InputCallback : public InputCallbackGeneric
+class InputCallbackOO : public InputCallbackGeneric
 {
 
 public:
@@ -71,17 +71,43 @@ private:
 
 public:
 
-    InputCallback(Class* class_instance, Method method)
+    InputCallbackOO(Class* class_instance, Method method)
     {
         m_pClassInstance = class_instance;
         m_theMethod = method;
     };
 
-    virtual ~InputCallback() { };
+    virtual ~InputCallbackOO() { };
 
     virtual void Execute(stInputCallbackParameter parameter, int id) const
     {
         (m_pClassInstance->*m_theMethod)(parameter, id);
+    };
+};
+
+class InputCallback : public InputCallbackGeneric
+{
+    
+public:
+    
+    typedef void (*Method)(stInputCallbackParameter, int);
+    
+private:
+    
+    Method m_theMethod;
+    
+public:
+    
+    InputCallback(Method method)
+    {
+        m_theMethod = method;
+    };
+    
+    virtual ~InputCallback() { };
+    
+    virtual void Execute(stInputCallbackParameter parameter, int id) const
+    {
+        (*m_theMethod)(parameter, id);
     };
 };
 
