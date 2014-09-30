@@ -1362,11 +1362,11 @@ void in_handle_events()
         case SDL_MOUSEMOTION:
             ::in_handle_mouse(e);
             break;
-		*/
+		
         case SDL_WINDOWEVENT:
             ::in_handle_window(e.window);
             break;
-        
+        */
         case SDL_FINGERMOTION:
         case SDL_FINGERDOWN:
         case SDL_FINGERUP:
