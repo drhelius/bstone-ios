@@ -858,7 +858,10 @@ void ReadConfig()
 
     bstone::FileStream stream(tempPath);
 
-    if (stream.is_open()) {
+    // ISG --> never load config from file:
+    //if (stream.is_open()) {
+    if (false)
+    {
         Uint32 checksum = 0;
         bstone::BinaryReader reader(&stream);
 
@@ -1023,6 +1026,8 @@ void ReadConfig()
         in_use_modern_bindings = k_in_use_modern_bindings_default;
         g_always_run = k_always_run_default;
     }
+    
+    g_always_run = false;
 
     ::SD_SetMusicMode(sm);
     ::SD_SetSoundMode(sd);
@@ -1155,7 +1160,7 @@ void NewGame (Sint16 difficulty,Sint16 episode)
 	gamestate.lives = 3;
 	gamestate.nextextra = EXTRAPOINTS;
 	gamestate.episode=episode;
-	gamestate.flags |= (GS_CLIP_WALLS|GS_ATTACK_INFOAREA);	//|GS_DRAW_CEILING|GS_DRAW_FLOOR);
+	gamestate.flags |= (GS_CLIP_WALLS|GS_ATTACK_INFOAREA|GS_DRAW_CEILING|GS_DRAW_FLOOR);
 
 #if IN_DEVELOPMENT || TECH_SUPPORT_VERSION
 	if (gamestate.flags & GS_STARTLEVEL)
