@@ -1848,10 +1848,10 @@ void InputController(stInputCallbackParameter parameter, int id)
                 key = sc_left_arrow;
                 break;
             case 2:
-                key = sc_w;
+                key = sc_up_arrow;
                 break;
             case 3:
-                key = sc_s;
+                key = sc_down_arrow;
                 break;
         }
         
@@ -1992,8 +1992,8 @@ void in_set_default_bindings()
             in_bindings[b][k] = sc_none;
     }
 
-    in_bindings[e_bi_forward][0] = sc_w;
-    in_bindings[e_bi_backward][0] = sc_s;
+    in_bindings[e_bi_forward][0] = sc_up_arrow;
+    in_bindings[e_bi_backward][0] = sc_down_arrow;
     in_bindings[e_bi_left][0] = sc_left_arrow;
     in_bindings[e_bi_right][0] = sc_right_arrow;
     in_bindings[e_bi_strafe][0] = sc_alt;
