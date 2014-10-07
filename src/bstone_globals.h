@@ -26,5 +26,7 @@
 
 extern int res_width;
 extern int res_height;
+extern int delta_pad_x;
+extern int delta_pad_y;
 
 #endif /* defined(__BlakeStone__bstone_globals__) */

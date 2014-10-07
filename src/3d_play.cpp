@@ -25,6 +25,7 @@ Free Software Foundation, Inc.,
 // 3D_PLAY.C
 
 #include "3d_def.h"
+#include "bstone_globals.h"
 
 #ifdef MSVC
 #pragma hdrstop
@@ -351,19 +352,22 @@ void PollKeyboardMove()
     if (g_always_run)
         is_running = !is_running;
 
+    // ISG --> touch pad:
     int value = tics * (is_running ? RUNMOVE : BASEMOVE);
-
+    int valuex = tics * delta_pad_x;
+    int valuey = tics * delta_pad_y;
+    
     if (in_is_binding_pressed(e_bi_forward))
-        controly -= value;
+        controly -= valuey;
 
     if (in_is_binding_pressed(e_bi_backward))
-        controly += value;
+        controly += valuey;
 
     if (in_is_binding_pressed(e_bi_left))
-        controlx -= value;
+        controlx -= valuex;
 
     if (in_is_binding_pressed(e_bi_right))
-        controlx += value;
+        controlx += valuex;
 
     strafe_value = 0;
 
@@ -518,6 +522,8 @@ void PollControls (void)
 // get timing info for last frame
 //
 	CalcTics ();
+    
+
 
     // BBi
     ::in_handle_events();

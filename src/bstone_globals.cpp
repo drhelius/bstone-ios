@@ -25,3 +25,5 @@
 
 int res_width = 0;
 int res_height = 0;
+int delta_pad_x = 0;
+int delta_pad_y = 0;

@@ -119,6 +119,7 @@ KeyboardDef KbdDefs = {
 bool in_use_modern_bindings = k_in_use_modern_bindings_default;
 Bindings in_bindings;
 
+
 /*
 =============================================================================
 
@@ -130,6 +131,8 @@ Bindings in_bindings;
 // ISG --> input callbacks
 InputCallback* m_pInputCallbackController;
 InputCallback* m_pInputCallbackButtons;
+
+
 
 boolean		IN_Started;
 
@@ -1566,8 +1569,8 @@ register	KeyboardDef	*def;
 	}
 	else
 	{
-		dx = static_cast<Sint16>(mx * 127);
-		dy = static_cast<Sint16>(my * 127);
+        dx = static_cast<Sint16>(mx * 127);
+        dy = static_cast<Sint16>(my * 127);
 	}
 
 	info->x = dx;
@@ -1816,8 +1819,10 @@ void InputController(stInputCallbackParameter parameter, int id)
     if (parameter.type != PRESS_END)
     {
         float length = parameter.vector.length();
+        delta_pad_x = abs(fminf(parameter.vector.x / 3.0f, 110.0f));
+        delta_pad_y = abs(fminf(parameter.vector.y / 3.0f, 110.0f));
         
-        float minLength = 25.0f;
+        float minLength = 6.0f;
         
         /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
         {
