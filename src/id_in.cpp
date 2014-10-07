@@ -1819,10 +1819,10 @@ void InputController(stInputCallbackParameter parameter, int id)
     if (parameter.type != PRESS_END)
     {
         float length = parameter.vector.length();
-        delta_pad_x = abs(fminf(parameter.vector.x / 3.0f, 110.0f));
-        delta_pad_y = abs(fminf(parameter.vector.y / 3.0f, 110.0f));
+        delta_pad_x = abs(fminf(parameter.vector.x / 2.8f, 130.0f));
+        delta_pad_y = abs(fminf(parameter.vector.y / 2.7f, 140.0f));
         
-        float minLength = 6.0f;
+        float minLength = 5.0f;
         
         /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
         {
