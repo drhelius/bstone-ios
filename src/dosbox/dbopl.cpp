@@ -795,7 +795,7 @@ INLINE void Channel::GeneratePercussion( Chip* chip, Bit32s* output ) {
 	//BassDrum
 	Bit32s mod = (Bit32u)((old[0] + old[1])) >> feedback;
 	old[0] = old[1];
-	old[1] = Op(0)->GetSample( mod ); 
+	old[1] = static_cast<Bit32s>(Op(0)->GetSample( mod ));
 
 	//When bassdrum is in AM mode first operator is ignoed
 	if ( chan->regC0 & 1 ) {
@@ -803,23 +803,23 @@ INLINE void Channel::GeneratePercussion( Chip* chip, Bit32s* output ) {
 	} else {
 		mod = old[0];
 	}
-	Bit32s sample = Op(1)->GetSample( mod ); 
+	Bit32s sample = static_cast<Bit32s>(Op(1)->GetSample( mod ));
 
 
 	//Precalculate stuff used by other outputs
 	Bit32u noiseBit = chip->ForwardNoise() & 0x1;
-	Bit32u c2 = Op(2)->ForwardWave();
-	Bit32u c5 = Op(5)->ForwardWave();
+	Bit32u c2 = static_cast<Bit32u>(Op(2)->ForwardWave());
+	Bit32u c5 = static_cast<Bit32u>(Op(5)->ForwardWave());
 	Bit32u phaseBit = (((c2 & 0x88) ^ ((c2<<5) & 0x80)) | ((c5 ^ (c5<<2)) & 0x20)) ? 0x02 : 0x00;
 
 	//Hi-Hat
-	Bit32u hhVol = Op(2)->ForwardVolume();
+	Bit32u hhVol = static_cast<Bit32u>(Op(2)->ForwardVolume());
 	if ( !ENV_SILENT( hhVol ) ) {
 		Bit32u hhIndex = (phaseBit<<8) | (0x34 << ( phaseBit ^ (noiseBit << 1 )));
 		sample += Op(2)->GetWave( hhIndex, hhVol );
 	}
 	//Snare Drum
-	Bit32u sdVol = Op(3)->ForwardVolume();
+	Bit32u sdVol = static_cast<Bit32u>(Op(3)->ForwardVolume());
 	if ( !ENV_SILENT( sdVol ) ) {
 		Bit32u sdIndex = ( 0x100 + (c2 & 0x100) ) ^ ( noiseBit << 8 );
 		sample += Op(3)->GetWave( sdIndex, sdVol );
@@ -828,7 +828,7 @@ INLINE void Channel::GeneratePercussion( Chip* chip, Bit32s* output ) {
 	sample += Op(4)->GetSample( 0 );
 
 	//Top-Cymbal
-	Bit32u tcVol = Op(5)->ForwardVolume();
+	Bit32u tcVol = static_cast<Bit32u>(Op(5)->ForwardVolume());
 	if ( !ENV_SILENT( tcVol ) ) {
 		Bit32u tcIndex = (1 + phaseBit) << 8;
 		sample += Op(5)->GetWave( tcIndex, tcVol );
@@ -911,24 +911,24 @@ Channel* Channel::BlockTemplate( Chip* chip, Bit32u samples, Bit32s* output ) {
 		//Do unsigned shift so we can shift out all bits but still stay in 10 bit range otherwise
 		Bit32s mod = (Bit32u)((old[0] + old[1])) >> feedback;
 		old[0] = old[1];
-		old[1] = Op(0)->GetSample( mod );
+		old[1] = static_cast<Bit32s>(Op(0)->GetSample( mod ));
 		Bit32s sample;
 		Bit32s out0 = old[0];
 		if ( mode == sm2AM || mode == sm3AM ) {
-			sample = out0 + Op(1)->GetSample( 0 );
+			sample = out0 + static_cast<Bit32s>(Op(1)->GetSample( 0 ));
 		} else if ( mode == sm2FM || mode == sm3FM ) {
-			sample = Op(1)->GetSample( out0 );
+			sample = static_cast<Bit32s>(Op(1)->GetSample( out0 ));
 		} else if ( mode == sm3FMFM ) {
 			Bits next = Op(1)->GetSample( out0 ); 
 			next = Op(2)->GetSample( next );
-			sample = Op(3)->GetSample( next );
+			sample = static_cast<Bit32s>(Op(3)->GetSample( next ));
 		} else if ( mode == sm3AMFM ) {
 			sample = out0;
 			Bits next = Op(1)->GetSample( 0 ); 
 			next = Op(2)->GetSample( next );
 			sample += Op(3)->GetSample( next );
 		} else if ( mode == sm3FMAM ) {
-			sample = Op(1)->GetSample( out0 );
+			sample = static_cast<Bit32s>(Op(1)->GetSample( out0 ));
 			Bits next = Op(2)->GetSample( 0 );
 			sample += Op(3)->GetSample( next );
 		} else if ( mode == sm3AMAM ) {
@@ -1181,7 +1181,7 @@ Bit32u Chip::WriteAddr( Bit32u port, Bit8u val ) {
 
 void Chip::GenerateBlock2( Bitu total, Bit32s* output ) {
 	while ( total > 0 ) {
-		Bit32u samples = ForwardLFO( total );
+		Bit32u samples = ForwardLFO( static_cast<Bit32u>(total) );
 		memset(output, 0, sizeof(Bit32s) * samples);
 		int count = 0;
 		for( Channel* ch = chan; ch < chan + 9; ) {
@@ -1195,7 +1195,7 @@ void Chip::GenerateBlock2( Bitu total, Bit32s* output ) {
 
 void Chip::GenerateBlock3( Bitu total, Bit32s* output  ) {
 	while ( total > 0 ) {
-		Bit32u samples = ForwardLFO( total );
+		Bit32u samples = ForwardLFO( static_cast<Bit32u>(total) );
 		memset(output, 0, sizeof(Bit32s) * samples *2);
 		int count = 0;
 		for( Channel* ch = chan; ch < chan + 18; ) {
@@ -1268,7 +1268,7 @@ void Chip::Setup( Bit32u rate ) {
 
 			}
 			Bit32s diff = original - samples;
-			Bit32u lDiff = labs( diff );
+			Bit32u lDiff = static_cast<Bit32u>(labs( diff ));
 			//Init last on first pass
 			if ( lDiff < bestDiff ) {
 				bestDiff = lDiff;
@@ -1510,7 +1510,7 @@ void Handler::Generate( MixerChannel* chan, Bitu samples ) {
 
 void Handler::Init( Bitu rate ) {
 	InitTables();
-	chip.Setup( rate );
+	chip.Setup( static_cast<Bit32u>(rate) );
 }
 
 
