@@ -14,7 +14,6 @@
 		6680308919D6DBF40077056D /* bstone_timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6680308619D6DBF40077056D /* bstone_timer.mm */; };
 		6680308D19D739460077056D /* bstone_in_manager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6680308219D6DBF40077056D /* bstone_in_manager.mm */; };
 		6680309219D75B1F0077056D /* bstone_globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6680309019D75B1F0077056D /* bstone_globals.cpp */; };
-		66942E4419E4536B009E020A /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66942E4319E45244009E020A /* libSDL2.a */; };
 		66942E4619E453D6009E020A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66942E4519E453D6009E020A /* CoreMotion.framework */; };
 		66AC774E19CF73F20062EC4E /* AUDIOHED.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774219CF73F20062EC4E /* AUDIOHED.VSI */; };
 		66AC774F19CF73F20062EC4E /* AUDIOT.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774319CF73F20062EC4E /* AUDIOT.VSI */; };
@@ -89,6 +88,7 @@
 		66AC780E19CF75280062EC4E /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66AC780D19CF75280062EC4E /* main.mm */; };
 		66AC781319CF77440062EC4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66AC781219CF77440062EC4E /* Images.xcassets */; };
 		66AC781519CF7BD50062EC4E /* bstone_resource_path.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66AC781419CF7BD50062EC4E /* bstone_resource_path.mm */; };
+		66CECCDC1AB61912008186B5 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CECCDB1AB6190B008186B5 /* libSDL2.a */; };
 		FD779EDE0E26BA1200F39101 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD779EDD0E26BA1200F39101 /* CoreAudio.framework */; };
 		FD77A07D0E26BD8C00F39101 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD77A07C0E26BD8C00F39101 /* Icon.png */; };
 		FD77A07F0E26BDA900F39101 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FD77A07E0E26BDA900F39101 /* Default.png */; };
@@ -97,9 +97,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		66942E4219E45244009E020A /* PBXContainerItemProxy */ = {
+		66CECCDA1AB6190B008186B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 66942E3D19E45244009E020A /* SDL.xcodeproj */;
+			containerPortal = 66CECCD51AB6190B008186B5 /* SDL.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = FD6526630DE8FCCB002AD96B;
 			remoteInfo = libSDL;
@@ -122,7 +122,6 @@
 		6680308719D6DBF40077056D /* bstone_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_vector.h; path = src/bstone_vector.h; sourceTree = "<group>"; };
 		6680309019D75B1F0077056D /* bstone_globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bstone_globals.cpp; path = src/bstone_globals.cpp; sourceTree = "<group>"; };
 		6680309119D75B1F0077056D /* bstone_globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_globals.h; path = src/bstone_globals.h; sourceTree = "<group>"; };
-		66942E3D19E45244009E020A /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../../SDL2-2.0.4-SN/SDL/Xcode-iOS/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		66942E4519E453D6009E020A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		66AC774219CF73F20062EC4E /* AUDIOHED.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOHED.VSI; path = vsi/AUDIOHED.VSI; sourceTree = "<group>"; };
 		66AC774319CF73F20062EC4E /* AUDIOT.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOT.VSI; path = vsi/AUDIOT.VSI; sourceTree = "<group>"; };
@@ -262,6 +261,7 @@
 		66AC781219CF77440062EC4E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BlakeStone/Images.xcassets; sourceTree = "<group>"; };
 		66AC781419CF7BD50062EC4E /* bstone_resource_path.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bstone_resource_path.mm; path = src/bstone_resource_path.mm; sourceTree = "<group>"; };
 		66AC781619CF7C130062EC4E /* bstone_resource_path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bstone_resource_path.h; path = src/bstone_resource_path.h; sourceTree = "<group>"; };
+		66CECCD51AB6190B008186B5 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "dependencies/SDL2-2.0.4-slime73/Xcode-iOS/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD779EDD0E26BA1200F39101 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		FD77A07C0E26BD8C00F39101 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -275,8 +275,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CECCDC1AB61912008186B5 /* libSDL2.a in Frameworks */,
 				66942E4619E453D6009E020A /* CoreMotion.framework in Frameworks */,
-				66942E4419E4536B009E020A /* libSDL2.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
@@ -313,7 +313,7 @@
 		29B97315FDCFA39411CA2CEA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				66942E3D19E45244009E020A /* SDL.xcodeproj */,
+				66CECCD51AB6190B008186B5 /* SDL.xcodeproj */,
 				66AC780D19CF75280062EC4E /* main.mm */,
 				66AC773F19CF73810062EC4E /* src */,
 			);
@@ -344,14 +344,6 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		66942E3E19E45244009E020A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				66942E4319E45244009E020A /* libSDL2.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		66AC773F19CF73810062EC4E /* src */ = {
@@ -522,6 +514,14 @@
 			name = dosbox;
 			sourceTree = "<group>";
 		};
+		66CECCD61AB6190B008186B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66CECCDB1AB6190B008186B5 /* libSDL2.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -569,8 +569,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 66942E3E19E45244009E020A /* Products */;
-					ProjectRef = 66942E3D19E45244009E020A /* SDL.xcodeproj */;
+					ProductGroup = 66CECCD61AB6190B008186B5 /* Products */;
+					ProjectRef = 66CECCD51AB6190B008186B5 /* SDL.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -581,11 +581,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		66942E4319E45244009E020A /* libSDL2.a */ = {
+		66CECCDB1AB6190B008186B5 /* libSDL2.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSDL2.a;
-			remoteRef = 66942E4219E45244009E020A /* PBXContainerItemProxy */;
+			remoteRef = 66CECCDA1AB6190B008186B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -732,7 +732,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
