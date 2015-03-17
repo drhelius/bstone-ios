@@ -73,7 +73,7 @@
 		66AC77FE19CF742B0062EC4E /* id_us_1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77B719CF742B0062EC4E /* id_us_1.cpp */; };
 		66AC77FF19CF742B0062EC4E /* id_us.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77B819CF742B0062EC4E /* id_us.cpp */; };
 		66AC780019CF742B0062EC4E /* id_vh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77BA19CF742B0062EC4E /* id_vh.cpp */; };
-		66AC780119CF742B0062EC4E /* id_vl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77BC19CF742B0062EC4E /* id_vl.cpp */; };
+		66AC780119CF742B0062EC4E /* id_vl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77BC19CF742B0062EC4E /* id_vl.mm */; };
 		66AC780219CF742B0062EC4E /* jm_cio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77BF19CF742B0062EC4E /* jm_cio.cpp */; };
 		66AC780319CF742B0062EC4E /* jm_debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77C119CF742B0062EC4E /* jm_debug.cpp */; };
 		66AC780419CF742B0062EC4E /* jm_free.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77C419CF742B0062EC4E /* jm_free.cpp */; };
@@ -89,6 +89,7 @@
 		66AC781319CF77440062EC4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66AC781219CF77440062EC4E /* Images.xcassets */; };
 		66AC781519CF7BD50062EC4E /* bstone_resource_path.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66AC781419CF7BD50062EC4E /* bstone_resource_path.mm */; };
 		66CECCDC1AB61912008186B5 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CECCDB1AB6190B008186B5 /* libSDL2.a */; };
+		66CECCE21AB62984008186B5 /* bstone_ogl_texturemanager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66CECCE11AB62984008186B5 /* bstone_ogl_texturemanager.mm */; };
 		FD779EDE0E26BA1200F39101 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD779EDD0E26BA1200F39101 /* CoreAudio.framework */; };
 		FD77A07D0E26BD8C00F39101 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD77A07C0E26BD8C00F39101 /* Icon.png */; };
 		FD77A07F0E26BDA900F39101 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FD77A07E0E26BDA900F39101 /* Default.png */; };
@@ -232,7 +233,7 @@
 		66AC77B919CF742B0062EC4E /* id_us.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_us.h; path = src/id_us.h; sourceTree = "<group>"; };
 		66AC77BA19CF742B0062EC4E /* id_vh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_vh.cpp; path = src/id_vh.cpp; sourceTree = "<group>"; };
 		66AC77BB19CF742B0062EC4E /* id_vh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_vh.h; path = src/id_vh.h; sourceTree = "<group>"; };
-		66AC77BC19CF742B0062EC4E /* id_vl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_vl.cpp; path = src/id_vl.cpp; sourceTree = "<group>"; };
+		66AC77BC19CF742B0062EC4E /* id_vl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = id_vl.mm; path = src/id_vl.mm; sourceTree = "<group>"; };
 		66AC77BD19CF742B0062EC4E /* id_vl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_vl.h; path = src/id_vl.h; sourceTree = "<group>"; };
 		66AC77BE19CF742B0062EC4E /* jam_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jam_io.h; path = src/jam_io.h; sourceTree = "<group>"; };
 		66AC77BF19CF742B0062EC4E /* jm_cio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jm_cio.cpp; path = src/jm_cio.cpp; sourceTree = "<group>"; };
@@ -262,6 +263,10 @@
 		66AC781419CF7BD50062EC4E /* bstone_resource_path.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bstone_resource_path.mm; path = src/bstone_resource_path.mm; sourceTree = "<group>"; };
 		66AC781619CF7C130062EC4E /* bstone_resource_path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bstone_resource_path.h; path = src/bstone_resource_path.h; sourceTree = "<group>"; };
 		66CECCD51AB6190B008186B5 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "dependencies/SDL2-2.0.4-slime73/Xcode-iOS/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
+		66CECCDE1AB62984008186B5 /* bstone_definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_definitions.h; path = src/bstone_definitions.h; sourceTree = "<group>"; };
+		66CECCDF1AB62984008186B5 /* bstone_ogl_texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_ogl_texture.h; path = src/bstone_ogl_texture.h; sourceTree = "<group>"; };
+		66CECCE01AB62984008186B5 /* bstone_ogl_texturemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_ogl_texturemanager.h; path = src/bstone_ogl_texturemanager.h; sourceTree = "<group>"; };
+		66CECCE11AB62984008186B5 /* bstone_ogl_texturemanager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bstone_ogl_texturemanager.mm; path = src/bstone_ogl_texturemanager.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD779EDD0E26BA1200F39101 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		FD77A07C0E26BD8C00F39101 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -389,6 +394,7 @@
 				66AC778819CF742B0062EC4E /* bstone_c.h */,
 				66AC778919CF742B0062EC4E /* bstone_cl_args.cpp */,
 				66AC778A19CF742B0062EC4E /* bstone_cl_args.h */,
+				66CECCDE1AB62984008186B5 /* bstone_definitions.h */,
 				66AC778B19CF742B0062EC4E /* bstone_endian.h */,
 				66AC778C19CF742B0062EC4E /* bstone_file_stream.cpp */,
 				66AC778D19CF742B0062EC4E /* bstone_file_stream.h */,
@@ -408,6 +414,9 @@
 				66AC779519CF742B0062EC4E /* bstone_memory_stream.h */,
 				66AC779619CF742B0062EC4E /* bstone_ogl_api.cpp */,
 				66AC779719CF742B0062EC4E /* bstone_ogl_api.h */,
+				66CECCDF1AB62984008186B5 /* bstone_ogl_texture.h */,
+				66CECCE01AB62984008186B5 /* bstone_ogl_texturemanager.h */,
+				66CECCE11AB62984008186B5 /* bstone_ogl_texturemanager.mm */,
 				66AC779819CF742B0062EC4E /* bstone_ogl_version.cpp */,
 				66AC779919CF742B0062EC4E /* bstone_ogl_version.h */,
 				66AC779A19CF742B0062EC4E /* bstone_opl2.cpp */,
@@ -450,7 +459,7 @@
 				66AC77B919CF742B0062EC4E /* id_us.h */,
 				66AC77BA19CF742B0062EC4E /* id_vh.cpp */,
 				66AC77BB19CF742B0062EC4E /* id_vh.h */,
-				66AC77BC19CF742B0062EC4E /* id_vl.cpp */,
+				66AC77BC19CF742B0062EC4E /* id_vl.mm */,
 				66AC77BD19CF742B0062EC4E /* id_vl.h */,
 				66AC77BE19CF742B0062EC4E /* jam_io.h */,
 				66AC77BF19CF742B0062EC4E /* jm_cio.cpp */,
@@ -631,7 +640,7 @@
 				66AC77FB19CF742B0062EC4E /* id_pm.cpp in Sources */,
 				66AC77FC19CF742B0062EC4E /* id_sd.cpp in Sources */,
 				66AC77E719CF742B0062EC4E /* bstone_binary_reader.cpp in Sources */,
-				66AC780119CF742B0062EC4E /* id_vl.cpp in Sources */,
+				66AC780119CF742B0062EC4E /* id_vl.mm in Sources */,
 				66AC776319CF74070062EC4E /* dbopl.cpp in Sources */,
 				66AC77FE19CF742B0062EC4E /* id_us_1.cpp in Sources */,
 				66AC780419CF742B0062EC4E /* jm_free.cpp in Sources */,
@@ -647,6 +656,7 @@
 				66AC77E219CF742B0062EC4E /* bstone_adlib_decoder.cpp in Sources */,
 				66AC77E519CF742B0062EC4E /* bstone_audio_decoder.cpp in Sources */,
 				66AC77F319CF742B0062EC4E /* bstone_pcm_decoder.cpp in Sources */,
+				66CECCE21AB62984008186B5 /* bstone_ogl_texturemanager.mm in Sources */,
 				66AC77E619CF742B0062EC4E /* bstone_audio_mixer.cpp in Sources */,
 				66AC780019CF742B0062EC4E /* id_vh.cpp in Sources */,
 				66AC77DD19CF742B0062EC4E /* 3d_menu.cpp in Sources */,

@@ -32,4 +32,3 @@ Free Software Foundation, Inc.,
 #define IsValidPointer(pointer) ((pointer) != NULL)
 
 #endif	/* DEFINITIONS_H */
-
