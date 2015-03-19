@@ -65,7 +65,7 @@
 		66AC77F619CF742B0062EC4E /* d3_d2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77A219CF742B0062EC4E /* d3_d2.cpp */; };
 		66AC77F719CF742B0062EC4E /* d3_dr2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77A319CF742B0062EC4E /* d3_dr2.cpp */; };
 		66AC77F819CF742B0062EC4E /* id_ca.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77AA19CF742B0062EC4E /* id_ca.cpp */; };
-		66AC77F919CF742B0062EC4E /* id_in.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77AE19CF742B0062EC4E /* id_in.cpp */; };
+		66AC77F919CF742B0062EC4E /* id_in.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77AE19CF742B0062EC4E /* id_in.mm */; };
 		66AC77FA19CF742B0062EC4E /* id_mm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77B019CF742B0062EC4E /* id_mm.cpp */; };
 		66AC77FB19CF742B0062EC4E /* id_pm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77B219CF742B0062EC4E /* id_pm.cpp */; };
 		66AC77FC19CF742B0062EC4E /* id_sd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC77B419CF742B0062EC4E /* id_sd.cpp */; };
@@ -219,7 +219,7 @@
 		66AC77AB19CF742B0062EC4E /* id_ca.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_ca.h; path = src/id_ca.h; sourceTree = "<group>"; };
 		66AC77AC19CF742B0062EC4E /* id_head.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_head.h; path = src/id_head.h; sourceTree = "<group>"; };
 		66AC77AD19CF742B0062EC4E /* id_heads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_heads.h; path = src/id_heads.h; sourceTree = "<group>"; };
-		66AC77AE19CF742B0062EC4E /* id_in.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_in.cpp; path = src/id_in.cpp; sourceTree = "<group>"; };
+		66AC77AE19CF742B0062EC4E /* id_in.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = id_in.mm; path = src/id_in.mm; sourceTree = "<group>"; };
 		66AC77AF19CF742B0062EC4E /* id_in.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_in.h; path = src/id_in.h; sourceTree = "<group>"; };
 		66AC77B019CF742B0062EC4E /* id_mm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = id_mm.cpp; path = src/id_mm.cpp; sourceTree = "<group>"; };
 		66AC77B119CF742B0062EC4E /* id_mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id_mm.h; path = src/id_mm.h; sourceTree = "<group>"; };
@@ -445,7 +445,7 @@
 				66AC77AB19CF742B0062EC4E /* id_ca.h */,
 				66AC77AC19CF742B0062EC4E /* id_head.h */,
 				66AC77AD19CF742B0062EC4E /* id_heads.h */,
-				66AC77AE19CF742B0062EC4E /* id_in.cpp */,
+				66AC77AE19CF742B0062EC4E /* id_in.mm */,
 				66AC77AF19CF742B0062EC4E /* id_in.h */,
 				66AC77B019CF742B0062EC4E /* id_mm.cpp */,
 				66AC77B119CF742B0062EC4E /* id_mm.h */,
@@ -670,7 +670,7 @@
 				66AC77DF19CF742B0062EC4E /* 3d_play.cpp in Sources */,
 				66AC77F519CF742B0062EC4E /* colormap.cpp in Sources */,
 				6680308919D6DBF40077056D /* bstone_timer.mm in Sources */,
-				66AC77F919CF742B0062EC4E /* id_in.cpp in Sources */,
+				66AC77F919CF742B0062EC4E /* id_in.mm in Sources */,
 				66AC77FD19CF742B0062EC4E /* id_sdd.cpp in Sources */,
 				66AC77EF19CF742B0062EC4E /* bstone_memory_stream.cpp in Sources */,
 				66AC77DA19CF742B0062EC4E /* 3d_game.cpp in Sources */,
