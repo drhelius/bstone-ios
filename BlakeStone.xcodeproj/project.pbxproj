@@ -14,19 +14,19 @@
 		6680308919D6DBF40077056D /* bstone_timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6680308619D6DBF40077056D /* bstone_timer.mm */; };
 		6680308D19D739460077056D /* bstone_in_manager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6680308219D6DBF40077056D /* bstone_in_manager.mm */; };
 		6680309219D75B1F0077056D /* bstone_globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6680309019D75B1F0077056D /* bstone_globals.cpp */; };
+		66890A671ABB7552009DE67B /* AUDIOHED.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774219CF73F20062EC4E /* AUDIOHED.VSI */; };
+		66890A681ABB7552009DE67B /* AUDIOT.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774319CF73F20062EC4E /* AUDIOT.VSI */; };
+		66890A691ABB7552009DE67B /* CONFIG.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774419CF73F20062EC4E /* CONFIG.VSI */; };
+		66890A6A1ABB7552009DE67B /* EANIM.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774519CF73F20062EC4E /* EANIM.VSI */; };
+		66890A6B1ABB7552009DE67B /* IANIM.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774619CF73F20062EC4E /* IANIM.VSI */; };
+		66890A6C1ABB7552009DE67B /* MAPHEAD.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774719CF73F20062EC4E /* MAPHEAD.VSI */; };
+		66890A6D1ABB7552009DE67B /* MAPTEMP.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774819CF73F20062EC4E /* MAPTEMP.VSI */; };
+		66890A6E1ABB7552009DE67B /* SAVEGAM0.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774919CF73F20062EC4E /* SAVEGAM0.VSI */; };
+		66890A6F1ABB7552009DE67B /* VGADICT.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774A19CF73F20062EC4E /* VGADICT.VSI */; };
+		66890A701ABB7552009DE67B /* VGAGRAPH.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774B19CF73F20062EC4E /* VGAGRAPH.VSI */; };
+		66890A711ABB7552009DE67B /* VGAHEAD.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774C19CF73F20062EC4E /* VGAHEAD.VSI */; };
+		66890A741ABB761F009DE67B /* VSWAP.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66890A731ABB761F009DE67B /* VSWAP.VSI */; };
 		66942E4619E453D6009E020A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66942E4519E453D6009E020A /* CoreMotion.framework */; };
-		66AC774E19CF73F20062EC4E /* AUDIOHED.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774219CF73F20062EC4E /* AUDIOHED.VSI */; };
-		66AC774F19CF73F20062EC4E /* AUDIOT.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774319CF73F20062EC4E /* AUDIOT.VSI */; };
-		66AC775019CF73F20062EC4E /* CONFIG.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774419CF73F20062EC4E /* CONFIG.VSI */; };
-		66AC775119CF73F20062EC4E /* EANIM.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774519CF73F20062EC4E /* EANIM.VSI */; };
-		66AC775219CF73F20062EC4E /* IANIM.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774619CF73F20062EC4E /* IANIM.VSI */; };
-		66AC775319CF73F20062EC4E /* MAPHEAD.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774719CF73F20062EC4E /* MAPHEAD.VSI */; };
-		66AC775419CF73F20062EC4E /* MAPTEMP.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774819CF73F20062EC4E /* MAPTEMP.VSI */; };
-		66AC775519CF73F20062EC4E /* SAVEGAM0.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774919CF73F20062EC4E /* SAVEGAM0.VSI */; };
-		66AC775619CF73F20062EC4E /* VGADICT.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774A19CF73F20062EC4E /* VGADICT.VSI */; };
-		66AC775719CF73F20062EC4E /* VGAGRAPH.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774B19CF73F20062EC4E /* VGAGRAPH.VSI */; };
-		66AC775819CF73F20062EC4E /* VGAHEAD.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774C19CF73F20062EC4E /* VGAHEAD.VSI */; };
-		66AC775919CF73F20062EC4E /* VSWAP.VSI in Resources */ = {isa = PBXBuildFile; fileRef = 66AC774D19CF73F20062EC4E /* VSWAP.VSI */; };
 		66AC776319CF74070062EC4E /* dbopl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC775B19CF74070062EC4E /* dbopl.cpp */; };
 		66AC77D419CF742B0062EC4E /* 3d_act1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC776419CF742B0062EC4E /* 3d_act1.cpp */; };
 		66AC77D519CF742B0062EC4E /* 3d_act2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AC776519CF742B0062EC4E /* 3d_act2.cpp */; };
@@ -123,6 +123,7 @@
 		6680308719D6DBF40077056D /* bstone_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_vector.h; path = src/bstone_vector.h; sourceTree = "<group>"; };
 		6680309019D75B1F0077056D /* bstone_globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bstone_globals.cpp; path = src/bstone_globals.cpp; sourceTree = "<group>"; };
 		6680309119D75B1F0077056D /* bstone_globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bstone_globals.h; path = src/bstone_globals.h; sourceTree = "<group>"; };
+		66890A731ABB761F009DE67B /* VSWAP.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = VSWAP.VSI; path = vsi/VSWAP.VSI; sourceTree = "<group>"; };
 		66942E4519E453D6009E020A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		66AC774219CF73F20062EC4E /* AUDIOHED.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOHED.VSI; path = vsi/AUDIOHED.VSI; sourceTree = "<group>"; };
 		66AC774319CF73F20062EC4E /* AUDIOT.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = AUDIOT.VSI; path = vsi/AUDIOT.VSI; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		66AC774A19CF73F20062EC4E /* VGADICT.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = VGADICT.VSI; path = vsi/VGADICT.VSI; sourceTree = "<group>"; };
 		66AC774B19CF73F20062EC4E /* VGAGRAPH.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = VGAGRAPH.VSI; path = vsi/VGAGRAPH.VSI; sourceTree = "<group>"; };
 		66AC774C19CF73F20062EC4E /* VGAHEAD.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = VGAHEAD.VSI; path = vsi/VGAHEAD.VSI; sourceTree = "<group>"; };
-		66AC774D19CF73F20062EC4E /* VSWAP.VSI */ = {isa = PBXFileReference; lastKnownFileType = file; name = VSWAP.VSI; path = vsi/VSWAP.VSI; sourceTree = "<group>"; };
 		66AC775A19CF74070062EC4E /* adlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = adlib.h; path = src/dosbox/adlib.h; sourceTree = "<group>"; };
 		66AC775B19CF74070062EC4E /* dbopl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dbopl.cpp; path = src/dosbox/dbopl.cpp; sourceTree = "<group>"; };
 		66AC775C19CF74070062EC4E /* dbopl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dbopl.h; path = src/dosbox/dbopl.h; sourceTree = "<group>"; };
@@ -502,7 +502,7 @@
 				66AC774A19CF73F20062EC4E /* VGADICT.VSI */,
 				66AC774B19CF73F20062EC4E /* VGAGRAPH.VSI */,
 				66AC774C19CF73F20062EC4E /* VGAHEAD.VSI */,
-				66AC774D19CF73F20062EC4E /* VSWAP.VSI */,
+				66890A731ABB761F009DE67B /* VSWAP.VSI */,
 			);
 			name = VSI;
 			sourceTree = "<group>";
@@ -604,21 +604,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66AC775719CF73F20062EC4E /* VGAGRAPH.VSI in Resources */,
-				66AC774F19CF73F20062EC4E /* AUDIOT.VSI in Resources */,
-				66AC775119CF73F20062EC4E /* EANIM.VSI in Resources */,
+				66890A691ABB7552009DE67B /* CONFIG.VSI in Resources */,
+				66890A6C1ABB7552009DE67B /* MAPHEAD.VSI in Resources */,
+				66890A6E1ABB7552009DE67B /* SAVEGAM0.VSI in Resources */,
 				FD77A07D0E26BD8C00F39101 /* Icon.png in Resources */,
-				66AC775919CF73F20062EC4E /* VSWAP.VSI in Resources */,
-				66AC775419CF73F20062EC4E /* MAPTEMP.VSI in Resources */,
 				66AC781319CF77440062EC4E /* Images.xcassets in Resources */,
-				66AC775619CF73F20062EC4E /* VGADICT.VSI in Resources */,
-				66AC775519CF73F20062EC4E /* SAVEGAM0.VSI in Resources */,
-				66AC775819CF73F20062EC4E /* VGAHEAD.VSI in Resources */,
-				66AC775319CF73F20062EC4E /* MAPHEAD.VSI in Resources */,
-				66AC774E19CF73F20062EC4E /* AUDIOHED.VSI in Resources */,
+				66890A6F1ABB7552009DE67B /* VGADICT.VSI in Resources */,
+				66890A681ABB7552009DE67B /* AUDIOT.VSI in Resources */,
+				66890A711ABB7552009DE67B /* VGAHEAD.VSI in Resources */,
+				66890A741ABB761F009DE67B /* VSWAP.VSI in Resources */,
 				FD77A07F0E26BDA900F39101 /* Default.png in Resources */,
-				66AC775219CF73F20062EC4E /* IANIM.VSI in Resources */,
-				66AC775019CF73F20062EC4E /* CONFIG.VSI in Resources */,
+				66890A6A1ABB7552009DE67B /* EANIM.VSI in Resources */,
+				66890A701ABB7552009DE67B /* VGAGRAPH.VSI in Resources */,
+				66890A671ABB7552009DE67B /* AUDIOHED.VSI in Resources */,
+				66890A6B1ABB7552009DE67B /* IANIM.VSI in Resources */,
+				66890A6D1ABB7552009DE67B /* MAPTEMP.VSI in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

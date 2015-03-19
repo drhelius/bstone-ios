@@ -24,7 +24,7 @@
 #import <Foundation/Foundation.h>
 #include "bstone_resource_path.h"
 
-std::string getResourcePath()
+std::string getMainBundleResourcePath()
 {
     NSBundle* mainBundle = [NSBundle mainBundle];
     
@@ -35,4 +35,16 @@ std::string getResourcePath()
     }
     
     return "";
+}
+
+std::string getDocumentsResourcePath()
+{
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    return [documentsDirectory UTF8String] + std::string("/");
+}
+
+std::string getJailbrokenResourcePath()
+{
+    NSString *path = @"/var/mobile/Media/bstone";
+    return [path UTF8String] + std::string("/");
 }

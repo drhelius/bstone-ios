@@ -26,6 +26,8 @@
 
 #include <string>
 
-std::string getResourcePath();
+std::string getMainBundleResourcePath();
+std::string getDocumentsResourcePath();
+std::string getJailbrokenResourcePath();
 
 #endif

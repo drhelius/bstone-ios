@@ -96,14 +96,34 @@ bool FileStream::open(
         mode |= std::ios::trunc;
     }
     
-    // ISG --> full path for iOS resource bundles
-    std::string path = getResourcePath();
+    // ISG --> search in 3 paths
+    
+    std::string path = getMainBundleResourcePath();
     std::string full_path = path + file_name;
 
     stream_.open(full_path.c_str(), mode);
 
     if (!stream_.is_open())
-        return false;
+    {
+        path = getDocumentsResourcePath();
+        full_path = path + file_name;
+        
+        stream_.open(full_path.c_str(), mode);
+        
+        if (!stream_.is_open())
+        {
+            path = getJailbrokenResourcePath();
+            full_path = path + file_name;
+            
+            stream_.open(full_path.c_str(), mode);
+            
+            if (!stream_.is_open())
+            {
+                return false;
+            }
+        }
+   
+    }
 
     bool is_succeed = true;
 
