@@ -1438,10 +1438,11 @@ bool ogl_pre_window_creation()
     errors += SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
     errors += SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 0);
     errors += SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 16);
-    errors += SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+    errors += SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 0);
     errors += SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
         SDL_GL_CONTEXT_PROFILE_ES);
     errors &= SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+    errors &= SDL_GL_SetAttribute(SDL_GL_RETAINED_BACKING, 1);
 #else
     errors += SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     errors += SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
