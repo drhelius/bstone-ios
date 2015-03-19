@@ -26,12 +26,10 @@ Free Software Foundation, Inc.,
 
 #include <stdexcept>
 #include <vector>
-
 #include "id_heads.h"
-
 #include "bstone_ogl_api.h"
-
 #include "bstone_globals.h"
+#include "bstone_ogl_texturemanager.h"
 
 #ifdef MSVC
 #pragma hdrstop
@@ -1774,8 +1772,8 @@ bool x_initialize_video()
             "SDL: %s", "Creating a window...");
 
         if (!sdl_use_custom_window_position) {
-            sdl_window_x = (display_mode.w - window_width) / 2;
-            sdl_window_y = (display_mode.h - window_height) / 2;
+            sdl_window_x = (1334/*display_mode.w*/ - window_width) / 2;
+            sdl_window_y = (750/*display_mode.h*/ - window_height) / 2;
         }
 
         if (sdl_window_x < 0)
@@ -1788,7 +1786,7 @@ bool x_initialize_video()
 
         flags |= SDL_WINDOW_HIDDEN;
         flags |= vid_get_window_flags();
-
+/*
         if (!sdl_is_windowed) {
             if (window_width == display_mode.w &&
                 window_height == display_mode.h)
@@ -1797,6 +1795,8 @@ bool x_initialize_video()
             } else
                 flags |= SDL_WINDOW_FULLSCREEN;
         }
+        */
+        flags |= SDL_WINDOW_FULLSCREEN;
 
         sdl_window = SDL_CreateWindow(
             "Blake Stone: Planet Strike",
@@ -1809,6 +1809,11 @@ bool x_initialize_video()
         if (sdl_window == NULL) {
             is_succeed = false;
             SDL_LogInfo(SDL_LOG_CATEGORY_ERROR, "%s", SDL_GetError());
+        }
+        else
+        {
+            SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION,
+                        "SDL: Window X:%d Y:%d W:%d H:%d", sdl_window_x, sdl_window_y, window_width, window_height);
         }
     }
     
@@ -1995,9 +2000,9 @@ void initialize_video()
     }
     
     // ISG --> force resolution
-    vga_width = k_ref_width;
-    vga_height = k_ref_height;
-    vga_scale = 1;
+    vga_width = k_ref_width * 3;
+    vga_height = k_ref_height * 3;
+    vga_scale = 3;
 
     vga_area = vga_width * vga_height;
 
@@ -2014,11 +2019,14 @@ void initialize_video()
     else
         scale = v_scale;
 
-    screen_width = static_cast<int>(
-        (vga_width * scale) + 0.5);
+    screen_width = static_cast<int>((vga_width * scale) + 0.5);
 
-    screen_height = static_cast<int>(
-        (vga_height * scale) + 0.5);
+    screen_height = static_cast<int>((vga_height * scale) + 0.5);
+    
+    //if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    //{
+
+    //}
 
     screen_x = (window_width - screen_width) / 2;
     screen_y = (window_height - screen_height) / 2;
@@ -2048,10 +2056,16 @@ void initialize_video()
         Quit("SDL: %s", "Failed to initialize a renderer.");
 
     SDL_ShowWindow(sdl_window);
+    
+    [[UIDevice currentDevice] setValue:
+     [NSNumber numberWithInteger: UIInterfaceOrientationLandscapeRight]
+                                forKey:@"orientation"];
 }
 
 void uninitialize_video()
 {
+    TextureManager::Instance().UnloadAll();
+    
     if (vid_uninitialize_video != NULL)
         vid_uninitialize_video();
 
