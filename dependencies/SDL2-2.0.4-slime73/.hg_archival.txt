@@ -1,5 +1,0 @@
-repo: 74212992fb0868a6929180cd74dd67e38507340a
-node: a66a7f7e8cd8e602ba149c1e8449960b3037c4c5
-branch: iOS-improvements
-latesttag: release-2.0.3
-latesttagdistance: 619
