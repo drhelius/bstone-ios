@@ -17,7 +17,7 @@ If you want new features ask for them but don't forget donating, thanks :)
 Compiling Instructions
 ----------------------
 
-- Install Xcode for Mac OS X. You need iOS SDK 7.0 or later.  
+- Install Xcode for Mac OS X. You need the latest iOS SDK installed.  
 - Open the Blake Stone Xcode project and build.
 - Run it on real hardware using your iOS developer certificate. For jailbroken devices use the jailbreak branch.
 
