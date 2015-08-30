@@ -8,10 +8,6 @@ bstone-ios is an iOS source port of the original Blake Stone: Planet Strike sour
 
 Follow me on Twitter for updates: http://twitter.com/drhelius
 
-If you want new features ask for them but don't forget donating, thanks :)
-
-[![PayPal - The safer, easier way to pay online!](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=28YUTJVAH7JH8 "PayPal - The safer, easier way to pay online!")
-
 ----------
 
 Compiling Instructions
