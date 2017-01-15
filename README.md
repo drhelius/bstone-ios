@@ -4,7 +4,7 @@ Blake Stone: Planet Strike iOS source port
 
 ----------
 
-bstone-ios is an iOS source port of the original Blake Stone: Planet Strike source code based on the SDL port by Boris Bendovsky. It supports every single iOS device running iOS 7 or later.
+bstone-ios is an iOS source port of the original Blake Stone: Planet Strike source code based on the SDL port by Boris Bendovsky. It supports every single iOS device running iOS 8 or later.
 
 Follow me on Twitter for updates: http://twitter.com/drhelius
 
