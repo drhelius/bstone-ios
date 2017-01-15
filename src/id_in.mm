@@ -148,6 +148,8 @@ const char			* IN_ParmStrings[] = {"nojoys","nomouse","enablegp",nil};
 //	Internal routines
 
 // BBi
+// ISG --> unused keyboard handler
+/*
 static ScanCode in_keyboard_map_to_bstone(
     SDL_Keycode key_code,
     SDL_Keymod key_mod)
@@ -665,7 +667,10 @@ static char in_keyboard_map_to_char(
 
     return sc_none;
 }
+*/
 
+// ISG --> unused keyboard handler
+/*
 static void in_handle_keyboard(
     const SDL_KeyboardEvent& e)
 {
@@ -703,7 +708,10 @@ static void in_handle_keyboard(
             LastASCII = key_char;
     }
 }
+*/
 
+// ISG --> unused mouse handler
+/*
 static void in_handle_mouse_buttons(
     const SDL_MouseButtonEvent& e)
 {
@@ -739,17 +747,23 @@ static void in_handle_mouse_buttons(
             LastScan = key;
     }
 }
+*/
 
 static int in_mouse_dx;
 static int in_mouse_dy;
 
+// ISG --> unused mouse handler
+/*
 static void in_handle_mouse_motion(
     const SDL_MouseMotionEvent& e)
 {
     in_mouse_dx += e.xrel;
     in_mouse_dy += e.yrel;
 }
+*/
 
+// ISG --> unused mouse handler
+/*
 static void in_handle_mouse(const SDL_Event& e)
 {
     switch (e.type) {
@@ -765,6 +779,7 @@ static void in_handle_mouse(const SDL_Event& e)
         break;
     }
 }
+*/
 // BBi
 
 ///////////////////////////////////////////////////////////////////////////
@@ -1315,6 +1330,8 @@ IN_ClearKeysDown(void)
 }
 
 // BBi
+// ISG --> unused keyboard handler
+/*
 static void in_handle_window(
     const SDL_WindowEvent& e)
 {
@@ -1343,6 +1360,7 @@ static void in_handle_window(
         Keyboard[sc_mouse_x2] = false;
     }
 }
+*/
 
 void in_handle_events()
 {
@@ -1819,8 +1837,8 @@ void InputController(stInputCallbackParameter parameter, int id)
     if (parameter.type != PRESS_END)
     {
         float length = parameter.vector.length();
-        delta_pad_x = abs(fminf(parameter.vector.x / 2.8f, 130.0f));
-        delta_pad_y = abs(fminf(parameter.vector.y / 2.7f, 140.0f));
+        delta_pad_x = fabs(fminf(parameter.vector.x / 2.8f, 130.0f));
+        delta_pad_y = fabs(fminf(parameter.vector.y / 2.7f, 140.0f));
         
         float minLength = 5.0f;
         

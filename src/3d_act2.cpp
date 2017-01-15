@@ -5462,7 +5462,7 @@ boolean ProjectileTryMove(objtype *ob, fixed deltax, fixed deltay)
 
 							if ((Uint16)xdist < PROJCHECKSIZE && (Uint16)ydist < PROJCHECKSIZE)
 							{
-								proj_check=false;
+								proj_check=NULL;
                         proj_wall = 0;
 								ob->tilex = static_cast<Uint8>(ob->x>>TILESHIFT);
 								ob->tiley = static_cast<Uint8>(ob->y>>TILESHIFT);
@@ -5477,7 +5477,7 @@ boolean ProjectileTryMove(objtype *ob, fixed deltax, fixed deltay)
                      proj_wall = static_cast<Uint8>(
                          reinterpret_cast<size_t>(proj_check));
 
-							proj_check=false;
+							proj_check=NULL;
 			            ob->tilex = static_cast<Uint8>(ob->x>>TILESHIFT);
 	   		         ob->tiley = static_cast<Uint8>(ob->y>>TILESHIFT);
 							return(false);
@@ -5526,7 +5526,7 @@ void T_Projectile(objtype *ob)
 // Did movement hit anything solid.
 //
 
-	proj_check=false;
+	proj_check=NULL;
 
 	if (!ProjectileTryMove (ob,deltax,deltay))
 	{

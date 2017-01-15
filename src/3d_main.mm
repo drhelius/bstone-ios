@@ -860,7 +860,7 @@ void ReadConfig()
 
     // ISG --> never load config from file:
     //if (stream.is_open()) {
-    if (false)
+    if (/* DISABLES CODE */ (false))
     {
         Uint32 checksum = 0;
         bstone::BinaryReader reader(&stream);

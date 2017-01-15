@@ -2079,7 +2079,8 @@ void TP_FreeScript(PresenterInfo *pi,Uint16 id_cache)
 		UNCACHEGRCHUNK(id_cache);
 	}
 	else
-		if ((pi->script) && (pi->flags & TPF_CACHED_SCRIPT)) {
+        // ISG --> fixes warning
+		if (/*(pi->script) && */(pi->flags & TPF_CACHED_SCRIPT)) {
             delete [] static_cast<char*>(pi->scriptstart);
             pi->scriptstart = NULL;
         }

@@ -106,11 +106,11 @@ bool TextureManager::LoadTexture(Texture* pTexture, bool mipmaps)
         else
         {
             SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "@@@ TextureManager::LoadTexture PVR incorrect size: %s.pvr\n", pTexture->m_strName);
-            SafeDelete(pBuffer);
+            SafeDeleteArray(pBuffer);
             return false;
         }
 
-        SafeDelete(pBuffer);
+        SafeDeleteArray(pBuffer);
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
